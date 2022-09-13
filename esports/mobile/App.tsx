@@ -1,47 +1,36 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { StatusBar } from 'react-native';
 
+import { 
+  useFonts, 
+  Inter_400Regular, 
+  Inter_600SemiBold, 
+  Inter_700Bold, 
+  Inter_900Black
+} from '@expo-google-fonts/inter';
 
-interface ButtonProps{
-  title: string;
-}
+import { Background } from './src/components/Background';
+import { Loading } from './src/components/Loading';
 
-function Button(props: ButtonProps){
-  return (
-    <TouchableOpacity style={styles.button}>
-      <Text>
-      </Text>
-    </TouchableOpacity>
-  );
-}
+import { Home } from './src/screens/Home';
 
 export default function App() {
+  const [fontsLoaded] = useFonts({
+    Inter_400Regular, 
+    Inter_600SemiBold, 
+    Inter_700Bold, 
+    Inter_900Black
+  })
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Aoba Pessoar</Text>
-      <StatusBar style="auto" backgroundColor='cyan'/>
-      <Button title='Olá'/>
-    </View>
+    <Background>
+      <StatusBar 
+        barStyle={"light-content"}
+        backgroundColor={"transparent"}
+        translucent
+      />
+      { fontsLoaded ? <Home/>:<Loading/>}
+
+    </Background>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#8528ac',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-
-  title:{
-    color:'#fff',
-    fontSize: 32,
-    fontWeight: 'bold'
-  },
-
-  button:{
-    margin:'10px',
-    color:'#000',
-    backgroundColor: '#fff'
-  }
-});
