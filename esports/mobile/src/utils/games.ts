@@ -36,3 +36,7 @@ export const GAMES = [
     cover: require('../assets/games/game-6.png')
   },
 ];
+/*
+export const GAMES = fetch('http://localhost:3333/games')
+      .then(response => response.json())
+*/
