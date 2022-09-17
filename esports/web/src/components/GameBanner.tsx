@@ -1,4 +1,5 @@
-interface GameBannerProps{
+export interface GameBannerProps{
+    id: string
     bannerUrl: string,
     tittle: string,
     adsCount: number

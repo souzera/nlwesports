@@ -12,6 +12,8 @@ import { Heading } from '../../components/Heading';
 import { GameCard, GameCardProps } from '../../components/GameCard';
 import { Background } from '../../components/Background';
 
+import axios from 'axios'
+
 
 export function Home() {
 
@@ -19,15 +21,14 @@ export function Home() {
 
   const navigation = useNavigation();
 
-  function handleOpenGame({id, title, bannerUrl}:GameCardProps){
-    navigation.navigate('game', {id, title, bannerUrl});
+  function handleOpenGame({ id, title, bannerUrl }: GameCardProps) {
+    navigation.navigate('game', { id, title, bannerUrl });
   };
 
   useEffect(() => {
-    fetch('http://192.168.3.139:3333/games')
-      .then(response => response.json())
-      .then(data => setGames(data))
-  }, [])
+    axios('http://192.168.3.139:3333/games')
+      .then(response => {setGames(response.data)})
+  },[])
 
   return (
     <Background>

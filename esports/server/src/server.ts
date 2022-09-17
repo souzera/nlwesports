@@ -30,7 +30,7 @@ app.get('/games', async (request, response) => {
 });
 
 
-app.post('/games/:gameId/ads/add', async (request, response) => {
+app.post('/games/:gameId/ads', async (request, response) => {
     const gameId = request.params.gameId;
 
     const body = request.body
