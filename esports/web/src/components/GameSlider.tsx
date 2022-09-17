@@ -8,33 +8,32 @@ interface Props {
 }
 
 export function GameSlider({ data }: Props) {
+    
     const [ref] = useKeenSlider<HTMLDivElement>({
         slides: {
-            perView: 6,
-            spacing: 1,
-        },vertical:false
+            spacing: 4,
+            perView: 6, 
+        },
     })
 
     const games = data
     console.log(games)
 
     return (
-        <div ref={ref} className="keen-slide">
+        <div ref={ref} className="keen-slider ">
+
             {games.map((game, index) => {
-                const classNameTxt = `keen-slider__slide number-slide${index}`
+                const classNameTxt = `keen-slider__slide number-slide${index+1} rounded-lg`
                 return (
                     <div className={classNameTxt}>
                         <GameBanner
-                            key={game.id}
                             id={game.id}
-                            bannerUrl={game.bannerUrl}
                             tittle={game.title}
-                            adsCount={game._count.ads} />
+                            bannerUrl={game.bannerUrl}
+                            adsCount={game._count.ads}/>
                     </div>
                 )
             })}
         </div>
     )
-
-
 }

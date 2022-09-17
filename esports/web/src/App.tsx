@@ -44,17 +44,18 @@ function App() {
   }, [])
 
   return (
-    <div className='max-w-[1344px] mx-auto flex flex-col items-center my-20'>
+    <div className='max-w-[1280px] mx-auto overflow-hidden flex flex-col items-center my-20'>
       <img src={logoImg} alt="logo nlw" />
 
-      <h1 className='text-6xl text-white font-black mt-10'>
+      <h1 className='text-6xl text-white font-black mt-10 mb-8'>
         Seu <span className='bg-nlw-gradient bg-clip-text text-transparent'>duo</span> está aqui
       </h1>
 
-      <div hidden>
-        <GameSlider data={games} />
-      </div>
+      <GameSlider data={games} />
 
+
+      {/*
+       
       <div className='grid grid-cols-6 gap-6 mt-16 keen-slider__slide'>
         {games.map(game => {
           return <GameBanner
@@ -65,6 +66,8 @@ function App() {
             adsCount={game._count.ads} />
         })}
       </div>
+      
+      */}
 
 
       <Dialog.Root>
