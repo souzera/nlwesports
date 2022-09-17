@@ -32,7 +32,8 @@ export function Game() {
     fetch(`http://192.168.3.139:3333/ads/${adsId}/discord`)
       .then(response => response.json())
       .then(data => {
-        setDiscordDuoSelected(data)
+        setDiscordDuoSelected(data.discord)
+        console.log(discordDuoSelected)
       })
   }
 
@@ -90,7 +91,7 @@ export function Game() {
 
         <DuoMatch
           visible={discordDuoSelected.length > 0} 
-          discord='aoba'
+          discord={discordDuoSelected}
           onClose={() => setDiscordDuoSelected('')} />
       </SafeAreaView>
     </Background>
